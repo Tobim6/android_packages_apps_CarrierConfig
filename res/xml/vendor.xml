@@ -3,4 +3,12 @@
      filtering rules are the same as those in carrier_config*.xml files. This
      file is read after any specific config file from the assets folder, so it
      must use explicit filters for MCC ad MNC if that is desired. -->
-<carrier_config_list />
+<carrier_config_list>
+    <!-- O2 CZ (230/02): turn on VoLTE for the open-source IMS stack. AOSP's per-carrier-ID asset for
+         O2 (carrier id 1449) only sets show_4g_for_lte_data_icon_bool. T-Mobile CZ (carrier id 6) already
+         has carrier_volte_available_bool=true in its asset. MCC/MNC are matched as raw strings
+         (the app is built with the aapt2 keep-raw-values flag), so the leading zero in "02" is kept. -->
+    <carrier_config mcc="230" mnc="02">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+</carrier_config_list>
