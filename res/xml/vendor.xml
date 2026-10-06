@@ -10,5 +10,11 @@
          (the app is built with the aapt2 keep-raw-values flag), so the leading zero in "02" is kept. -->
     <carrier_config mcc="230" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
+    <!-- T-Mobile CZ (230/01): AOSP's per-carrier-ID asset (carrier id 6) enables VoLTE only. The ePDG
+         epdg.epc.mnc001.mcc230.pub.3gppnetwork.org exists in public DNS, so enable Wi-Fi calling here too. -->
+    <carrier_config mcc="230" mnc="01">
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
 </carrier_config_list>
